@@ -251,6 +251,7 @@ public class TiffReader
         }
     }
 
+
     private static void processTag(@NotNull final TiffHandler handler,
                                    final int tagId,
                                    final int tagValueOffset,
@@ -258,9 +259,6 @@ public class TiffReader
                                    final int formatCode,
                                    @NotNull final RandomAccessReader reader) throws IOException
     {
-        if(tagId == TAG_SONY_9050){
-            System.out.println("f");
-        }
         switch (formatCode) {
             case TiffDataFormat.CODE_UNDEFINED:
                 // this includes exif user comments

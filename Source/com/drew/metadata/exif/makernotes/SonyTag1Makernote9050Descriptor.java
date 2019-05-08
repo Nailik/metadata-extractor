@@ -9,4 +9,10 @@ public class SonyTag1Makernote9050Descriptor extends TagDescriptor {
         super(directory);
     }
 
+    @Override
+    @Nullable
+    public String getDescription(int tagType) {
+       return _directory.getInteger(tagType).toString();
+    }
+
 }

@@ -125,6 +125,7 @@ public class SonyType1MakernoteDirectory extends Directory
     public static final int TAG_NO_PRINT = 0xFFFF;
 
     public static final int TAG_SONY_9050 = 0x9050;
+    public static final int TAG_IMAGE_UNIQUE_ID = 0xa420;
 
     @NotNull
     protected static final HashMap<Integer, String> _tagNameMap = new HashMap<Integer, String>();
@@ -209,6 +210,7 @@ public class SonyType1MakernoteDirectory extends Directory
 
         _tagNameMap.put(TAG_NO_PRINT, "No Print");
         _tagNameMap.put(TAG_SONY_9050, "9050");
+        _tagNameMap.put(TAG_IMAGE_UNIQUE_ID, "unique");
     }
 
     public SonyType1MakernoteDirectory()

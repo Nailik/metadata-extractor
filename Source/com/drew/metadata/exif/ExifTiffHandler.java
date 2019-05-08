@@ -340,10 +340,11 @@ public class ExifTiffHandler extends DirectoryTiffHandler
         return false;
     }
 
+
     private static void processBinary(@NotNull final Directory directory, final int tagValueOffset, @NotNull final RandomAccessReader reader, final int byteCount, final Boolean isSigned, final int arrayLength) throws IOException
     {
         // expects signed/unsigned int16 (for now)
-        //int byteSize = isSigned ? sizeof(short) : sizeof(ushort);
+        //        //int byteSize = isSigned ? sizeof(short) : sizeof(ushort);
         int byteSize = 2;
 
         // 'directory' is assumed to contain tags that correspond to the byte position unless it's a set of bytes
@@ -726,6 +727,25 @@ public class ExifTiffHandler extends DirectoryTiffHandler
         } catch (IOException ex) {
             directory.addError("Error processing Kodak makernote data: " + ex.getMessage());
         }
+    }
+
+
+    private void processSony9050(@NotNull final SonyTag1Makernote9050Directory directory,  final int tagValueOffset, @NotNull final RandomAccessReader reader) {
+        try {
+            directory.setInt(SonyTag1Makernote9050Directory.TAG_SONY_MAX_APERATURE, reader.getInt8(0)); //4 for 0
+        } catch (IOException ex) {
+            directory.addError("Error processing Sony9050 data: " + ex.getMessage());
+        }
+    }
+
+    private static String bytesToHex(byte[] hashInBytes) {
+
+        StringBuilder sb = new StringBuilder();
+        for (byte b : hashInBytes) {
+            sb.append(String.format("%02x", b) + " ");
+        }
+        return sb.toString();
+
     }
 
     private static void processReconyxHyperFireMakernote(@NotNull final ReconyxHyperFireMakernoteDirectory directory, final int makernoteOffset, @NotNull final RandomAccessReader reader) throws IOException
