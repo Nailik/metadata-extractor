@@ -705,6 +705,13 @@ public class SonyType1MakernoteDescriptor extends TagDescriptor<SonyType1Makerno
 
     @Nullable
     private String getSony9050Description() {
+     //   final int tagOffset = calculateTagOffset(ifdOffset, tagNumber);
+
+        // 2 bytes for the tag id
+     //   final int tagId = reader.getUInt16(tagOffset);
+
+
+
         return null;
     }
 }

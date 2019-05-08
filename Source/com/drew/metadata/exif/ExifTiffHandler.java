@@ -244,6 +244,15 @@ public class ExifTiffHandler extends DirectoryTiffHandler
             return true;
         }
 
+        if (_currentDirectory instanceof SonyType1MakernoteDirectory) {
+            switch (tagId){
+                case SonyType1MakernoteDirectory.TAG_SONY_9050:
+                    pushDirectory(SonyTag1Makernote9050Directory.class);
+                    TiffReader.processIfd(this, reader, processedIfdOffsets, tagOffset, tiffHeaderOffset);
+                    return true;
+            }
+        }
+
         // Note: these also appear in tryEnterSubIfd because some are IFD pointers while others begin immediately
         // for the same directories
         if (_currentDirectory instanceof OlympusMakernoteDirectory) {

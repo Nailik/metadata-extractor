@@ -208,7 +208,7 @@ public class SonyType1MakernoteDirectory extends Directory
         _tagNameMap.put(TAG_WHITE_BALANCE_2, "White Balance 2");
 
         _tagNameMap.put(TAG_NO_PRINT, "No Print");
-        _tagNameMap.put(TAG_SONY_9050, "llll");
+        _tagNameMap.put(TAG_SONY_9050, "9050");
     }
 
     public SonyType1MakernoteDirectory()

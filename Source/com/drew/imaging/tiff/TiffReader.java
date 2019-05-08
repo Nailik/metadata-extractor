@@ -28,6 +28,8 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.drew.metadata.exif.makernotes.SonyType1MakernoteDirectory.TAG_SONY_9050;
+
 /**
  * Processes TIFF-formatted data, calling into client code via that {@link TiffHandler} interface.
  *
@@ -256,6 +258,9 @@ public class TiffReader
                                    final int formatCode,
                                    @NotNull final RandomAccessReader reader) throws IOException
     {
+        if(tagId == TAG_SONY_9050){
+            System.out.println("f");
+        }
         switch (formatCode) {
             case TiffDataFormat.CODE_UNDEFINED:
                 // this includes exif user comments
