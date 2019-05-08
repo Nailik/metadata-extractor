@@ -109,10 +109,13 @@ public class SonyType1MakernoteDescriptor extends TagDescriptor<SonyType1Makerno
                 return getReleaseModeDescription();
             case TAG_SEQUENCE_NUMBER:
                 return getSequenceNumberDescription();
+            case TAG_SONY_9050:
+                return getSony9050Description();
             default:
                 return super.getDescription(tagType);
         }
     }
+
 
     @Nullable
     public String getImageQualityDescription()
@@ -698,5 +701,10 @@ public class SonyType1MakernoteDescriptor extends TagDescriptor<SonyType1Makerno
             default:
                 return value.toString();
         }
+    }
+
+    @Nullable
+    private String getSony9050Description() {
+        return null;
     }
 }

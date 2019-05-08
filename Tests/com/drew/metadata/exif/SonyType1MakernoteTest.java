@@ -21,9 +21,13 @@
 
 package com.drew.metadata.exif;
 
+import com.drew.imaging.ImageMetadataReader;
+import com.drew.metadata.Metadata;
 import com.drew.metadata.exif.makernotes.SonyType1MakernoteDescriptor;
 import com.drew.metadata.exif.makernotes.SonyType1MakernoteDirectory;
 import org.junit.Test;
+
+import java.io.File;
 
 import static org.junit.Assert.*;
 
@@ -58,6 +62,18 @@ public class SonyType1MakernoteTest
         assertEquals("Program", descriptor.getExposureModeDescription());
         assertEquals("Off", descriptor.getLongExposureNoiseReductionDescription());
         assertEquals("Off", descriptor.getMacroDescription());
+        assertEquals("Normal", descriptor.getJpegQualityDescription());
+    }
+
+    @Test public void testSonyType1Makernote9050() throws Exception
+    {
+        Metadata metadata = ImageMetadataReader.readMetadata(new File("Tests/Data/sonyType1_9050.jpg"));
+        SonyType1MakernoteDirectory directory = metadata.getFirstDirectoryOfType(SonyType1MakernoteDirectory.class);
+
+        assertNotNull(directory);
+        assertFalse(directory.hasErrors());
+
+        SonyType1MakernoteDescriptor descriptor = new SonyType1MakernoteDescriptor(directory);
         assertEquals("Normal", descriptor.getJpegQualityDescription());
     }
 }

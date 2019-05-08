@@ -124,6 +124,8 @@ public class SonyType1MakernoteDirectory extends Directory
 
     public static final int TAG_NO_PRINT = 0xFFFF;
 
+    public static final int TAG_SONY_9050 = 0x9050;
+
     @NotNull
     protected static final HashMap<Integer, String> _tagNameMap = new HashMap<Integer, String>();
 
@@ -206,6 +208,7 @@ public class SonyType1MakernoteDirectory extends Directory
         _tagNameMap.put(TAG_WHITE_BALANCE_2, "White Balance 2");
 
         _tagNameMap.put(TAG_NO_PRINT, "No Print");
+        _tagNameMap.put(TAG_SONY_9050, "llll");
     }
 
     public SonyType1MakernoteDirectory()
